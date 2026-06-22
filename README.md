@@ -53,7 +53,7 @@ bash psi_calculation.sh -f OHC.junc.annot.example.refseq -c 5 -o ./example -n OH
 
 1. **Clone the ASPEP Repository**
 ```bash
-`git clone https://github.com/XX`
+`git clone [https://github.com/XX](https://github.com/JennySong924/ASPEP.git)`
 ```
 
 2. **Install R Dependencies**
