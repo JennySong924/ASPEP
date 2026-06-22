@@ -91,7 +91,7 @@ Rscript r_package_preparation.r
 
 ## Citation
 
-If you use `ASPE`, please cite XXX
+If you use `ASPEP`, please cite XXX
 
 <!-- Miao, J., Song, G., Wu, Y., Hu, J., Wu, Y., Basu, S., Andrews, J. S., Schaumberg, K., Fletcher, J. M., Schmitz, L. L., & Lu, Q. (2022). [Reimagining Gene-Environment Interaction Analysis for Human Complex Traits](https://doi.org/10.1101/2022.12.11.519973 ). bioRxiv, 2022.2012.2011.519973.  -->
 
