@@ -5,7 +5,7 @@
 
 `ASPEP` is a R-based command line tool for calculating percent splided in(PSI) of alternative splicing junctions.
 
-![]("D:/文本/九院耳研所/研究课题/6. 2025-04-HL genes/manuscripts/isoform-figure/fig5-a.pdf")
+![]("https://github.com/JennySong924/ASPEP/blob/main/static/Pipeline-01.png")
 
 
 
@@ -47,7 +47,7 @@ bash psi_calculation.sh -f OHC.junc.annot.example.refseq -c 5 -o ./example -n OH
 ### Installation & Setup
 
 #### Prerequisites
-- **R**: Version XX or higher
+- **R**: Version 4.5.0 or higher
 
 #### Installation
 
@@ -92,7 +92,7 @@ Rscript r_package_preparation.r
 
 ## Citation
 
-If you use `ASPE`, please cite 
+If you use `ASPE`, please cite XXX
 
 <!-- Miao, J., Song, G., Wu, Y., Hu, J., Wu, Y., Basu, S., Andrews, J. S., Schaumberg, K., Fletcher, J. M., Schmitz, L. L., & Lu, Q. (2022). [Reimagining Gene-Environment Interaction Analysis for Human Complex Traits](https://doi.org/10.1101/2022.12.11.519973 ). bioRxiv, 2022.2012.2011.519973.  -->
 
