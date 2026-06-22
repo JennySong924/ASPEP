@@ -19,7 +19,7 @@ The pipeline needs an input file generaged by RegTools, which includes junction 
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 |chr1|4774516|4777525|JUNC00000020|29|-|GT-AG|0|0|0|DA|1|1|1|Mrpl15|Mrpl15|NM_001177658.1,NM_025300.4,NR_033530.1|
 
-To run the pipeline, columns of `chrom`,`start`,`end`,`strand` are required.
+To run the pipeline, columns of `chrom`,`start`,`end`,`strand`, and `score` are required.
 
 ## Basic Usage
 
@@ -46,7 +46,7 @@ bash psi_calculation.sh -f OHC.junc.annot.example.refseq -c 5 -o ./example -n OH
 
 ### Prerequisites
 - **R**: Version 4.5.0 or higher
-- bedtools: Installation struction https://bedtools.readthedocs.io/en/latest/content/installation.html
+- **bedtools**: Installation instruction https://bedtools.readthedocs.io/en/latest/content/installation.html
 
 ### Installation
 
