@@ -46,6 +46,7 @@ bash psi_calculation.sh -f OHC.junc.annot.example.refseq -c 5 -o ./example -n OH
 
 ### Prerequisites
 - **R**: Version 4.5.0 or higher
+- bedtools: Installation struction https://bedtools.readthedocs.io/en/latest/content/installation.html
 
 ### Installation
 
