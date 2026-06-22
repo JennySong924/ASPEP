@@ -9,9 +9,7 @@
 
 
 
-## Quick start
-
-### Input files
+## Input files
 
 > Junction score file generaged by RegTools
 
@@ -23,7 +21,7 @@ The pipeline needs an input file generaged by RegTools, which includes junction 
 
 To run the pipeline, columns of `chrom`,`start`,`end`,`strand` must exist.
 
-### Basic Usage
+## Basic Usage
 
 ```bash
 bash psi_calculation.sh -f [input file] -c 5 -o [output dir] -n [prefix]
@@ -44,12 +42,12 @@ bash psi_calculation.sh -f OHC.junc.annot.example.refseq -c 5 -o ./example -n OH
 - `-n <prefix>` Prefix of output files
 
 
-### Installation & Setup
+## Installation & Setup
 
-#### Prerequisites
+### Prerequisites
 - **R**: Version 4.5.0 or higher
 
-#### Installation
+### Installation
 
 1. **Clone the ASPEP Repository**
 ```bash
@@ -61,7 +59,7 @@ bash psi_calculation.sh -f OHC.junc.annot.example.refseq -c 5 -o ./example -n OH
 Rscript r_package_preparation.r
 ```
 
-### Key Output Files
+## Key Output Files
 
 - `<prefix>.psi.gz` gzipped file containing following columns:
 
