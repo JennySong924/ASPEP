@@ -5,7 +5,7 @@
 
 `ASPEP` is a R-based command line tool for calculating percent splided in(PSI) of alternative splicing junctions.
 
-![]("https://github.com/JennySong924/ASPEP/blob/main/static/Pipeline-01.png")
+![](https://github.com/JennySong924/ASPEP/blob/main/static/Pipeline-01.png)
 
 
 
