@@ -22,24 +22,23 @@ do
 done
 
 
-echo "outdir directory:" $outdir
-mkdir -p $outdir
-
 ## filter junctions and create junction list file ----------------------------------------------
 ## junction file should contains: chrom   start   end     name    score   strand  splice_site     
 ## acceptors_skipped       exons_skipped   donors_skipped  anchor  known_donor     known_acceptor  
 ## known_junction  gene_names      gene_ids        transcripts (rmats outdir)
 
+echo "Output directory:" $outdir
 echo "Current directory: $(pwd)"
-echo "File variable: $file"
-ls -l "$file"
+echo "Junction score file: $file"
+# ls -l "$file"
 
-echo 'filter junctions and create junction list file...'
+echo 'Filter junctions and create junction list file...'
 mkdir -p "$outdir"
+mkdir -p "$outdir/depth"
 
-awk -v s="$s" '$5 >= s' "$file" > "${outdir}/junction_score_filtered"
+awk -v s="$c" '$5 >= s' "$file" > "${outdir}/junction_score_filtered"
 awk 'FNR > 1 {print $1, $2, $3, $6, $15, $16}' OFS="\t" "${outdir}/junction_score_filtered" \
-  | sort -k1,1 -k2,2n -k3,3n -u \
+  | sort -k1,1 -k2,2n -k3,3n -k4,4 -u \
   | awk -F"\t" '{print $0 "\t" $1 ":" $2 "-" $3 ":" $4}' \
   > "${outdir}/unique_junction_score_filtered"
 
@@ -112,11 +111,11 @@ rm ${SORTED_BED}_plus_base0 ${SORTED_BED}_minus_base0
 
 
 
-## junction ends depth preparation ------------------------------------------------
-
-awk '{print $1, $2, $6; print $1, $3, $6}' $file | sort -k1,1 -k2,2n -u | awk '{print $1, $2-1, $2, ".", ".", $3}' OFS="\t" > $outdir/junction_ends
-
-bedtools intersect -a $outdir/junction_ends -b ${outdir}/${basename}.depth -wa -wb -s > $outdir/${basename}_junction_ends_depth
+# ## junction ends depth preparation ------------------------------------------------
+# 
+# awk '{print $1, $2, $6; print $1, $3, $6}' $file | sort -k1,1 -k2,2n -u | awk '{print $1, $2-1, $2, ".", ".", $3}' OFS="\t" > $outdir/junction_ends
+# 
+# bedtools intersect -a $outdir/junction_ends -b ${outdir}/${basename}.depth -wa -wb -s > $outdir/${basename}_junction_ends_depth
 
 
 ## calculate psi ----------------------------------------------
