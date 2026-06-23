@@ -49,8 +49,51 @@ cat(paste0('Now working on ',basename,'\n'))
 
 cat('Loading input files...\n')
 
+depth_path <- paste0(output_arg,'/depth/',basename)
 full_junc_list_df <- as.data.frame(fread(full_junc_list))
 junc.c <- as.data.frame(fread(input_arg))
+
+cat('Calculating junction ends depth...\n')
+
+
+chr    <- junc.c[[1]]
+start  <- junc.c[[2]]
+end    <- junc.c[[3]]
+strand <- junc.c[[6]]
+
+
+end1 <- data.frame(chr = chr, pos = start, strand = strand)
+end2 <- data.frame(chr = chr, pos = end,   strand = strand)
+
+
+junction_ends <- rbind(end1, end2)
+
+
+junction_ends <- junction_ends[order(junction_ends$chr,
+                                     junction_ends$pos,
+                                     junction_ends$strand), ]
+junction_ends <- unique(junction_ends)
+
+
+bed_df <- data.frame(
+  chr   = junction_ends$chr,
+  start = pmax(junction_ends$pos - 1, 0),  # 防止出现负数
+  end   = junction_ends$pos,
+  name  = ".",
+  score = ".",
+  strand = junction_ends$strand,
+  stringsAsFactors = FALSE
+)
+
+
+out_file <- paste0(depth_path, "_junction_ends")
+write.table(bed_df, file = out_file,
+            sep = "\t", quote = FALSE,
+            row.names = FALSE, col.names = FALSE)
+
+system(paste0("bedtools intersect -a ",depth_path,"_junction_ends"," -b ",depth_path,'.depth'," -wa -wb -s > ",depth_path,"_junction_ends_depth"))
+
+
 ends.depth <- as.data.frame(fread(paste0(output_arg,"/",basename,"_junction_ends_depth")))
 
 
